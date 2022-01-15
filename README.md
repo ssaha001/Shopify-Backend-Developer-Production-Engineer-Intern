@@ -15,15 +15,15 @@ How to test the website:
       3. Make sure that node.js is installed. Run node --version in terminal to check if it is installed.
       4. Download node.js from [here](https://nodejs.org/en/download/)
       5. Open terminal and run these commands one by one:
-           a. npm init
-           b. npm install express
-           c. npm install mongoose
-           d. npm install await
-           e. npm install body-parser
-           f. npm install path
-           g. npm install express-handlebars
-           h. npm install multer
-           i. npm install doten
+           1. npm init
+           2. npm install express
+           3. npm install mongoose
+           4. npm install await
+           5. npm install body-parser
+           6. npm install path
+           7. npm install express-handlebars
+           8. npm install multer
+           9. npm install doten
       6. Run node server.js. Open any browser and navigate to [localhost:8080/](localhost:8080/)
       7. If it doesn't work, then navigate to [localhost:8080/](localhost:8080/)
       8. Explore the application features. 😊
