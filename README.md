@@ -24,8 +24,8 @@ How to test the website:
            7. npm install express-handlebars
            8. npm install multer
            9. npm install dotenv
-      6. Run node server.js. Open any browser and navigate to [localhost:8080/](localhost:8080/)
-      7. If it doesn't work, then navigate to [localhost:8080/](localhost:8080/)
+      6. Run node server.js. Open any browser and navigate to [localhost:8080/ ](localhost:8080/)
+      7. If it doesn't work, then navigate to [localhost:7080/ ](localhost:8080/)
       8. Explore the application features. 😊
 
 I plan to improve the design of this application and also make it responsive.
