@@ -2,8 +2,9 @@
 const express=require("express")
 const bodyParser = require("body-parser");
 const path=require("path");
-const Server=require('http')
 const exphbs = require("express-handlebars");
+const dotenv = require("dotenv");
+const mongoose = require('mongoose');
 const nav=require("./controllers/navigation")
 
 //Setting up express.
@@ -13,7 +14,6 @@ const app=express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Configuring the environment.
-const dotenv = require("dotenv");
 dotenv.config({path: "./keys/myEnvKeys.env"});
 
 // Establishing Handlebars.
@@ -24,7 +24,6 @@ app.engine('.hbs', exphbs.engine({
 app.set('view engine', '.hbs');
 
 // Establishing mongoose
-const mongoose = require('mongoose');
 mongoose.connect(process.env.CONNECTION_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true
