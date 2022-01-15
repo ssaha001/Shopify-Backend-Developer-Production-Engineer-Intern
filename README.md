@@ -1,6 +1,6 @@
 # Shopify-Backend-Developer-Production-Engineer-Intern
 
-##An inventory tracking web application
+## An inventory tracking web application
 An inventory tracking web application built using node.js, handlebars and css.
 Mongodb is used for storing details. The user gets additional options of searching for items based on criteria.
 The application focuses more on the backend than on the frontend. 
