@@ -11,7 +11,7 @@ How to test the website:
 
 2. You can also download the repository as a ZIP file from github by clicking on Code option.
       1. Extract the downloaded file.
-      2. Open the extracted folder in a code editor like [Visual Studio Code](https://code.visualstudio.com/download), [Sublime](https://www.sublimetext.com/3). I used Visual Studio Code
+      2. Open the extracted folder in a code editor like [Visual Studio Code](https://code.visualstudio.com/download), [Sublime Text](https://www.sublimetext.com/3). I used Visual Studio Code
       3. Make sure that node.js is installed. Run node --version in terminal to check if it is installed.
       4. Download node.js from [here](https://nodejs.org/en/download/)
       5. Open terminal and run these commands one by one:
