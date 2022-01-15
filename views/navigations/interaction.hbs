@@ -1,0 +1,67 @@
+<main>
+    <form method="post" action="searchCriteria" id="addForm">
+        {{#if name}}
+            <h2 class="formTitle">Search product by {{name}}</h2>
+            <label for="name"><span class="red-text">*</span>Name</label>
+        <input
+        type="text"
+        id="name"
+        name="name"
+        autofocus
+        tabindex="1"
+        required
+        placeholder="Enter product name"
+        />
+        {{/if}}
+        {{#if category}}
+        <h2 class="formTitle">Filter product by {{category}}</h2>
+        <label for="category"><span class="red-text">*</span>Choose a category</label>
+    <select name="category" id="category">
+      {{#each cat}}
+        <option value="{{value}}">{{value}}</option>
+      {{/each}}
+    </select>
+        {{/if}}
+        {{#if quantity}}
+        <h2 class="formTitle">Search for product with quantity range between :</h2>
+        <label for="min"><span class="red-text">*</span>Min (inclusive)</label>
+    <input
+      type="number"
+      id="min"
+      name="min"
+      tabindex="1"
+      required
+      step="1"
+      min="0"
+      placeholder="Enter minimum value"
+    />
+    <label for="max"><span class="red-text">*</span>Max (inclusive)</label>
+    <input
+      type="number"
+      id="max"
+      name="max"
+      tabindex="2"
+      required
+      step="1"
+      min="1"
+      placeholder="Enter maximum value"
+    />
+    {{/if}}
+    {{#if addCat}}
+    <h2 class="formTitle">{{addCat}}</h2>
+    <label for="catName"><span class="red-text">*</span>Category Name</label>
+        <input
+        type="text"
+        id="catName"
+        name="catName"
+        autofocus
+        tabindex="1"
+        required
+        placeholder="Enter category name"
+        />
+    <button type="submit" id="addBtn">Add</button>
+    {{else}}
+    <button type="submit" id="addBtn">Search</button>
+    {{/if}}
+    </form>
+</main>

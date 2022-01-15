@@ -1,0 +1,47 @@
+<main>
+    {{#if msg}}
+    <h1>{{msg}}</h1>
+    {{/if}}
+    {{#if data}}
+    <table>
+    <caption>Inventory details</caption>
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Date Added (MM/DD/YYYY)</th>
+            <th colspan="2">Options</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each data}}
+        <tr id="{{name}}">
+            <td>{{name}}</td>
+            <td>{{desc}}</td>
+            <td>
+            {{#if image}}
+            <img src="../../static/pics/{{image}}" width="100px" height="100px">
+            {{/if}}
+            </td>
+            <td>{{quantity}}</td>
+            <td>{{cat}}</td>
+            <td>{{addedDate}}</td>
+            <td><form id="optBtn" action="/mod/:{{name}}" method="post"><button type="submit">Modify</button></form></td>
+            <td><form id"optBtn" action="/del/:{{name}}" method="post"><button type="submit">Delete</button></form></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+    {{#if notFound}}
+        <h1>{{notFound}}</h1>
+    {{else}}
+        <h1>OOPS! The inventory does not have any product</h1>
+    {{/if}}
+{{/if}}
+</main>
