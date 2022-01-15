@@ -1,4 +1,4 @@
-const category = require("../models/category");
+const await =require("await");
 const product=require("../models/inventory");
 module.exports.addItem=async(name,desc,quantity,date,cat,fname="")=>{
     let error=false;
