@@ -53,7 +53,7 @@ app.use("searchQuantity",nav)
 app.use("searchCriteria",nav)
 
 //Setting up the port for connection
-var HTTP_PORT = process.env.PORT || 7080;
+var HTTP_PORT = process.env.PORT || 8080;
 
 // Function to check if the connection has been established. 
 // This function is called after the connection has been successfully established.
