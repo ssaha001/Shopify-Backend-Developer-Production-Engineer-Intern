@@ -15,19 +15,10 @@ How to test the website:
       1. Extract the downloaded file.
       2. Open the extracted folder in a code editor like [Visual Studio Code](https://code.visualstudio.com/download), [Sublime Text](https://www.sublimetext.com/3). I used Visual Studio Code
       3. Make sure that node.js is installed. Run node --version in terminal to check if it is installed.
-      4. Download node.js from [here](https://nodejs.org/en/download/)
-      5. Open terminal and run these commands one by one:
-           1. npm init
-           2. npm install express
-           3. npm install mongoose
-           4. npm install await
-           5. npm install body-parser
-           6. npm install path
-           7. npm install express-handlebars
-           8. npm install multer
-           9. npm install dotenv
-      6. Run node server.js. Open any browser and navigate to [localhost:8080/ ](localhost:8080/)
-      7. If it doesn't work, then navigate to [localhost:7080/ ](localhost:8080/)
+      4. You can download node.js from [here](https://nodejs.org/en/download/)
+      5. Open terminal and run npm install. This will install all the necessary dependencies.
+      6. Run npm start. If you want to open the application on a specific port, then run PORT=<port_number> npm start. Replace <port_number> with the port number where you want to open the app.
+      7. Open any browser and navigate to (localhost:8080/) if you didn't specify port number in the previous step. Otherwise replace 8080 with the port number that you specified previously.
       8. Explore the application features. 😊
 
 I plan to improve the design of this application and also make it responsive.
