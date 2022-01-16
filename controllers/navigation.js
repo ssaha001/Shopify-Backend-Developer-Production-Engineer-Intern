@@ -3,8 +3,9 @@ const express=require("express");
 const dbCatControl = require("./dbCategoryControl");
 const dbInvControl = require("./dbInventoryControl");
 const path=require('path');
-const await=require('await');
 const multer=require('multer')
+const fs=require('fs');
+const await=require("await")
 const helper=require("../validator/validateImage");
 
 //Setting up multer to store image.
@@ -16,7 +17,16 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
   });
-const upload = multer({ storage: storage });
+const upload = multer({
+     storage: storage,
+     fileFilter: function(req,file,callback){
+         if(!helper.validateImage(file)){
+            req.fileValidationError=true;
+            return callback(null,false,req.fileValidationError);
+         }req.fileValidationError=false;
+         callback(null,true);
+     }
+    });
 
 //Setting up express to handle all the routes.
 const router=express.Router();
@@ -33,8 +43,8 @@ router.get("/add",async function(req,res){
 router.post("/itemAdded",upload.single('photo'),async function(req,res){
     const data=req.body;
     const file=req.file;
-    if(file!==undefined){
-        if(helper.validateImage(file)){
+    if(req.fileValidationError!==undefined){
+        if(!req.fileValidationError){
             let val=await dbInvControl.addItem(data.name,data.desc,data.quantity,data.date,data.category,file.filename);
             if(!val){
             res.render("navigations/confirmation",{
@@ -71,7 +81,14 @@ router.get("/view",async function(req,res){
 })
 
 router.post("/del/:id",async(req,res)=>{
-    await dbInvControl.delItem((req.params.id).substring(1));
+    let imgPath=await dbInvControl.delItem((req.params.id).substring(1));
+    if(imgPath!==''){fs.unlink(`static/pics/${imgPath}`, (err => {
+        if (err) console.error(err);
+        else {
+          console.log("File deleted succesfully.");
+        }
+    })
+    )}
     res.render("navigations/productList",{
         data:await dbInvControl.displayItems(),
         msg:`Product ${(req.params.id).substring(1)} has been deleted succesfully`

@@ -51,7 +51,9 @@ app.use("searchName",nav)
 app.use("searchCategory",nav)
 app.use("searchQuantity",nav)
 app.use("searchCriteria",nav)
-
+app.use((req,res)=>{
+  res.status("404").send("Error 404\nPage Not Found")
+})
 //Setting up the port for connection
 var HTTP_PORT = process.env.PORT || 8080;
 

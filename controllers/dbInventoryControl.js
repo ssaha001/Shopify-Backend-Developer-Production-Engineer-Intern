@@ -41,9 +41,14 @@ module.exports.displayItems=async()=>{
 }
 
 module.exports.delItem=async(name)=>{
-    await product.deleteOne({pname:name}).exec()
+    let imgPath='';
+    await product.findOne({"pName":name},{"_id":0,"pImg":1}).exec()
+    .then(result=>imgPath=result.pImg)
+    .catch((err)=>console.error(`Product not found because of ${err}`))
+    await product.deleteOne({pName:name}).exec()
     .then(()=>{console.log(`Product deleted succesfully`)})
     .catch((err)=>{console.log("product couldn't be deleted because of "+err)})
+    return imgPath;
 }
 
 module.exports.modItem=async(orgName,name,desc,quantity,date,cat)=>{
