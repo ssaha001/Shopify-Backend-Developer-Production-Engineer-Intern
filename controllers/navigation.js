@@ -30,16 +30,21 @@ const upload = multer({
 
 //Setting up express to handle all the routes.
 const router=express.Router();
+//Handling the base route
 router.get("/", async function(req,res){
     res.render("navigations/productList",{
         data:await dbInvControl.displayItems()
     })
 });
+
+//Adding an item to inventory
 router.get("/add",async function(req,res){
     res.render("navigations/addProduct",{
         cat:await dbCatControl.displayCategories()
     });
 });
+
+//This function is executed after the user enters details of the new product.
 router.post("/itemAdded",upload.single('photo'),async function(req,res){
     const data=req.body;
     const file=req.file;
@@ -74,12 +79,15 @@ router.post("/itemAdded",upload.single('photo'),async function(req,res){
     }
     }
 })
+
+//Function to display all the items stored in inventory.
 router.get("/view",async function(req,res){
     res.render("navigations/productList",{
         data:await dbInvControl.displayItems()
     })
 })
 
+//Deleting a particular item from inventory.
 router.post("/del/:id",async(req,res)=>{
     let imgPath=await dbInvControl.delItem((req.params.id).substring(1));
     if(imgPath!==''){fs.unlink(`static/pics/${imgPath}`, (err => {
@@ -94,13 +102,19 @@ router.post("/del/:id",async(req,res)=>{
         msg:`Product ${(req.params.id).substring(1)} has been deleted succesfully`
     })
 })
+
+//Variable to store original name of the item to be modified.
 let orgName='';
+
+//This function is called when the user wants to modify a certain product.
 router.post("/mod/:id",async(req,res)=>{
     orgName=(req.params.id).substring(1);
     res.render("navigations/modProduct",{
         cat:await dbCatControl.displayCategories()
     });
 })
+
+//Handling the modified product details sent from the user.
 router.post("/modDetails",async function(req,res){
     const data=req.body;
     await dbInvControl.modItem(orgName,data.name,data.desc,data.quantity,data.date,data.category);
@@ -109,22 +123,30 @@ router.post("/modDetails",async function(req,res){
         msg:`${orgName} has been succesfully modified`
     })
 })
+
+//For searching a product by name.
 router.get("/searchName",(req,res)=>{
     res.render("navigations/interaction",{
         name:"name"
     })
 })
+
+//For searching a product by quantity.
 router.get("/searchQuantity",(req,res)=>{
     res.render('navigations/interaction',{
         quantity:"quantity"
     })
 })
+
+//For searching a product by category.
 router.get("/searchCategory",async(req,res)=>{
     res.render('navigations/interaction',{
         category:"category",
         cat:await dbCatControl.displayCategories()
     })
 })
+
+//Handling the user's search criteria.
 router.post("/searchCriteria",async(req,res)=>{
     console.log(req.body)
     if(req.body.catName===undefined){
@@ -146,9 +168,12 @@ router.post("/searchCriteria",async(req,res)=>{
         });
     }
 })
+
+//Handling the request to add a new category.
 router.get("/addCat",(req,res)=>{
     res.render("navigations/interaction",{
         addCat:"Add a new category"
     })
 })
+
 module.exports=router;

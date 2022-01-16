@@ -51,6 +51,8 @@ app.use("searchName",nav)
 app.use("searchCategory",nav)
 app.use("searchQuantity",nav)
 app.use("searchCriteria",nav)
+
+//For responding to invalid requests.
 app.use((req,res)=>{
   res.status("404").send("Error 404\nPage Not Found")
 })

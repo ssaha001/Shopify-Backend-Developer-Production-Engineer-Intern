@@ -1,12 +1,5 @@
 const category=require("../models/category");
-module.exports.initCategories=function(){
-    let cat=new category({
-        cName:"Sports"
-    });
-    cat.save()
-    .then((savedData)=>{console.log(`Category ${savedData.cName} has been saved`)})
-    .catch(err=>{console.log("category couldn't be saved because of: "+err)})
-}
+//FUnction used for adding a new category.
 module.exports.addCategories=async function(name){
     let cat=await new category({
         cName:name
@@ -16,6 +9,7 @@ module.exports.addCategories=async function(name){
     .catch(err=>{console.log("category couldn't be saved because of: "+err)})
 }
 
+//Function used for displaying all the categories.
 module.exports.displayCategories=async()=>{
     let result=[];
     await category.find({},{"cName":1,"_id":0}).sort('cName').exec()
