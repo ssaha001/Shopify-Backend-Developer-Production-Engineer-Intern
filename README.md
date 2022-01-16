@@ -11,7 +11,7 @@ The user can also add image of an item.
 How to test the website:
 1. This app is hosted on heroku. So the easiest way to check all the features and test this website would be to [Click Here](https://serene-stream-27308.herokuapp.com/)
 
-2. You can also download the repository as a ZIP file from github by clicking on Code option.
+2. You can also download the repository as a ZIP file from github by clicking on Code option or you can clone the repository.
       1. Extract the downloaded file.
       2. Open the extracted folder in a code editor like [Visual Studio Code](https://code.visualstudio.com/download), [Sublime Text](https://www.sublimetext.com/3). I used Visual Studio Code
       3. Make sure that node.js is installed. Run node --version in terminal to check if it is installed.
