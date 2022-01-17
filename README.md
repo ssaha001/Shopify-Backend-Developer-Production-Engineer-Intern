@@ -9,7 +9,7 @@ The user can also add image of an item.
 [Click here](https://docs.google.com/document/d/1z9LZ_kZBUbg-O2MhZVVSqTmvDko5IJWHtuFmIu_Xg1A/edit) to check the instructions that were followed for building this web application.
 
 How to test the website:
-1. This app is hosted on heroku. So the easiest way to check all the features and test this website would be to [Click Here](https://serene-stream-27308.herokuapp.com/)
+1. This app is hosted on heroku. So the easiest way to check all the features and test this website would be to [Click Here](https://serene-temple-60421.herokuapp.com/)
 
 2. You can also download the repository as a ZIP file from github by clicking on Code option or you can clone the repository.
       1. Extract the downloaded file.
