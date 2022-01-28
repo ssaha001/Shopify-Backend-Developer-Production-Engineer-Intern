@@ -4,7 +4,7 @@
 An inventory tracking web application built using node.js, handlebars and css.
 Mongodb is used for storing details. The user gets additional options of searching for items based on criteria.
 The application focuses more on the backend than on the frontend. 
-The user can also add image of an item.
+The user can also add image of an item and it will be displayed on the inventory list.
 
 [Click here](https://docs.google.com/document/d/1z9LZ_kZBUbg-O2MhZVVSqTmvDko5IJWHtuFmIu_Xg1A/edit) to check the instructions that were followed for building this web application.
 
